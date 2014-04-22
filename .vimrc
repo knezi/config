@@ -1,24 +1,21 @@
 " nastavení set
-	set nocompatible
-	set history=1000
-	set ruler
-	set showcmd
-	set wildmenu
-	set number
-	set tabstop=4
-	filetype indent on
-	filetype plugin indent on
-	set autoindent
-	" zruší ikony
-	set guioptions-=T
-	" nastav grafické zobrazení záložek
-	set foldcolumn=4
- 	set foldlevel=1
-	set foldmethod=indent	
-	syntax on
-
-" nastav domovskou složku
-" 	cd /home/knezi/public_html/portfolio
+set nocompatible
+set history=1000
+set ruler
+set showcmd
+set wildmenu
+set number
+set tabstop=4
+filetype indent on
+filetype plugin indent on
+set autoindent
+" zruší ikony
+set guioptions-=T
+" nastav grafické zobrazení záložek
+set foldcolumn=4
+set foldlevel=1
+set foldmethod=indent	
+syntax on
 
 " automatické příkazy
 	autocmd BufNewFile *.html r /home/knezi/Dokumenty/sablony/html.html | call Priprav_soubor()
