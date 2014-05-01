@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+if ! ps -e | grep "[f]irefox"
+then
+	sudo -u knezi firefox > /dev/null&
+fi
+xdotool set_desktop 0

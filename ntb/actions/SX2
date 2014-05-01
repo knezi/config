@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+if ! ps -e | grep "[t]hunderbird"
+then
+	sudo -u knezi thunderbird > /dev/null&
+fi
+xdotool set_desktop 3

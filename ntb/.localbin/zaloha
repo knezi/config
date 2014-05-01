@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+mount /dev/disk/by-label/flash_zalohy /mnt/flash_zaloha
+rdiff-backup /etc /mnt/flash_zaloha/etc
+rdiff-backup /home /mnt/flash_zaloha/home
+rdiff-backup /var/lib/pacman/local/ /mnt/flash_zaloha/pacman
+rdiff-backup --remove-older-than 4W /mnt/flash_zaloha/etc
+rdiff-backup --remove-older-than 4W /mnt/flash_zaloha/home
+rdiff-backup --remove-older-than 4W /mnt/flash_zaloha/pacman
+umount /dev/disk/by-label/flash_zalohy

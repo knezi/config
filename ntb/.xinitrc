@@ -16,4 +16,5 @@ fi
 # exec startxfce4
 # ...or the Window Manager of your choice
 setxkbmap cz -variant qwerty
+sudo /home/knezi/.localbin/macros-run &
 exec awesome

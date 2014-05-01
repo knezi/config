@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# toggle mute
+amixer get Master | grep "\[on\]" && amixer set Master mute && exit
+amixer get Master | grep "\[off\]" && amixer set Master unmute && exit

@@ -18,14 +18,14 @@ set foldmethod=indent
 syntax on
 
 " automatické příkazy
-	autocmd BufNewFile *.html r /home/knezi/Dokumenty/sablony/html.html | call Priprav_soubor()
-	autocmd BufNewFile *.php r /home/knezi/Dokumenty/sablony/php.php | call Priprav_soubor()
-	autocmd BufNewFile *.tex r /home/knezi/Dokumenty/sablony/tex.tex | call Priprav_soubor() | call Nastav_make()
-	autocmd BufNewFile */ksp_ulohy/*.tex %d | r /home/knezi/Dokumenty/sablony/ksp.tex | call Priprav_soubor()
-	autocmd BufNewFile */mks_ulohy/*.tex %d | r /home/knezi/Dokumenty/sablony/mks.tex | call Priprav_soubor()
-	autocmd BufNewFile */brkos_ulohy/*.tex %d | r /home/knezi/Dokumenty/sablony/brkos.tex | call Priprav_soubor()
-	autocmd BufNewFile /*.py %d | r /home/knezi/Dokumenty/sablony/python.py | call Priprav_soubor() | call Nastav_make_py()
-	autocmd BufNewFile /*.sh %d | r /home/knezi/Dokumenty/sablony/shell.sh | call Priprav_soubor()
+	autocmd BufNewFile *.html r /home/knezi/Documents/sablony/html.html | call Priprav_soubor()
+	autocmd BufNewFile *.php r /home/knezi/Documents/sablony/php.php | call Priprav_soubor()
+	autocmd BufNewFile *.tex r /home/knezi/Documents/sablony/tex.tex | call Priprav_soubor() | call Nastav_make()
+	autocmd BufNewFile */ksp_ulohy/*.tex %d | r /home/knezi/Documents/sablony/ksp.tex | call Priprav_soubor()
+	autocmd BufNewFile */mks_ulohy/*.tex %d | r /home/knezi/Documents/sablony/mks.tex | call Priprav_soubor()
+	autocmd BufNewFile */brkos_ulohy/*.tex %d | r /home/knezi/Documents/sablony/brkos.tex | call Priprav_soubor()
+	autocmd BufNewFile /*.py %d | r /home/knezi/Documents/sablony/python.py | call Priprav_soubor() | call Nastav_make_py()
+	autocmd BufNewFile /*.sh %d | r /home/knezi/Documents/sablony/shell.sh | call Priprav_soubor()
 	autocmd BufReadPre *.py call Nastav_make_py()
 	autocmd BufNewFile *.coffee call Nastav_make_coffee()
 	autocmd BufReadPre *.coffee call Nastav_make_coffee()
@@ -45,9 +45,9 @@ function Nastav_make_py()
 endfunction
 
 function Nastav_make_coffee()
-	set makeprg=coffee\ -c\ %
-	map <F5> :w<CR>:make<CR>
-	map! <F5> <ESC>:w<CR>:make<CR>
+	set makeprg=coffee\ -b\ -c\ %
+	map <F5> :w<CR>:make<CR>:!./make.sh<CR>
+	map! <F5> <ESC>:w<CR>:make<CR>:!./make.sh<CR>
 endfunction
 
 function Nastav_make_c()

@@ -1,0 +1,2 @@
+#!/bin/env sh
+xdotool key "Alt+Tab"

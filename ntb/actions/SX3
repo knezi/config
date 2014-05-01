@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+#if ! ps -e | grep "[a]marok"
+#then
+#	amarok > /dev/null&
+#fi
+xdotool set_desktop 4

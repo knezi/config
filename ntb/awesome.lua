@@ -83,9 +83,9 @@ local layouts =
  tags = {
 	-- social = mail + IRC
 	-- office = Libre + TeX
-    names  = { "www", "social", "term", "graphic", "office", "music", 7, 8, 9 },
-    layout = { layouts[3], layouts[3], layouts[1], layouts[3], layouts[3],
-              layouts[3], layouts[1], layouts[1], layouts[1]
+    names  = { "www", "term", "others", "social", "music", 6, 7, 8 },
+
+    layout = { layouts[3], layouts[1], layouts[1], layouts[3], layouts[3], layouts[1], layouts[1], layouts[1]
  }}
  for s = 1, screen.count() do
 	-- Each screen has its own tag table.
