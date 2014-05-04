@@ -45,9 +45,9 @@ function Nastav_make_py()
 endfunction
 
 function Nastav_make_coffee()
-	set makeprg=coffee\ -b\ -c\ %
-	map <F5> :w<CR>:make<CR>:!./make.sh<CR>
-	map! <F5> <ESC>:w<CR>:make<CR>:!./make.sh<CR>
+	" set makeprg=coffee\ -b\ -c\ %
+	map <F5> :w<CR>:!./../make.sh<CR>
+	map! <F5> <ESC>:w<CR>:!./../make.sh<CR>
 endfunction
 
 function Nastav_make_c()

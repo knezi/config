@@ -1,0 +1,75 @@
+#!/usr/bin/env python
+
+# downsub file [language - default english]
+
+# Download subtitles from opensubtitles.org
+# hashFile from http://trac.opensubtitles.org/projects/opensubtitles/wiki/HashSourceCodes#Python
+# default language is English, you can add as parametr your own language (see http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes)
+# Script find first result finded by hash of movie and size in byte
+
+# Jan Knizek (Czech republic)
+# http://janknizek.cz
+# jk@janknizek.cz
+
+from xmlrpclib import ServerProxy
+from sys import argv
+import os
+import struct
+import urllib
+import re
+
+def hashFile(name):
+	try: 
+		longlongformat = 'q'  # long long 
+		bytesize = struct.calcsize(longlongformat) 
+
+		f = open(name, "rb") 
+
+		filesize = os.path.getsize(name) 
+		hash = filesize 
+
+		if filesize < 65536 * 2: 
+			return "SizeError" 
+
+		for x in range(65536/bytesize): 
+			buffer = f.read(bytesize) 
+			(l_value,)= struct.unpack(longlongformat, buffer)  
+			hash += l_value 
+			hash = hash & 0xFFFFFFFFFFFFFFFF #to remain as 64bit number  
+
+
+		f.seek(max(0,filesize-65536),0) 
+		for x in range(65536/bytesize): 
+			buffer = f.read(bytesize) 
+			(l_value,)= struct.unpack(longlongformat, buffer)  
+			hash += l_value 
+			hash = hash & 0xFFFFFFFFFFFFFFFF 
+
+		f.close() 
+		returnedhash =  "%016x" % hash 
+		return returnedhash 
+
+	except(IOError): 
+		return "IOError"
+
+
+proxy = ServerProxy("http://api.opensubtitles.org/xml-rpc")
+file = argv[1]
+if len(argv)==3:
+	lang=argv[2]
+else:
+	lang="eng"
+
+token = proxy.LogIn("knezi","A7j63o","cze","filmyRaspbian v1")["token"]
+sub = []
+sub.append({"sublanguageid":lang, "moviehash":hashFile(file),"moviebytesize":str(os.path.getsize(file))})
+
+file=re.sub("\.[^.]*$", "_"+lang, file)
+data=proxy.SearchSubtitles(token, sub)
+if data['data']:
+	urllib.urlretrieve(data["data"][0]["SubDownloadLink"], file + ".gz")
+	os.system("gzip -d '" + file + ".gz'")
+	os.rename(file, file + ".srt")
+	os.system("conv_title.sh \"" + file + ".srt\"")
+else:
+	print "Nothing to download."

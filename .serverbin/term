@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+if test $1 = "matrix"
+then
+	xterm -bg black -fg green
+elif test $1 = "bila"
+then
+	xterm -bg white -fg black
+else
+	xterm -bg black -fg white
+fi

@@ -1,0 +1,12 @@
+#!/bin/bash
+if test -z $1; then
+	 #sudo mount /dev/disk/by-id/usb-PRETEC_32GB_13052410440805848869-0\:0-part1 /home/pi/Filmovnicek/ -o umask=0000
+	mount /dev/disk/by-uuid/DB47-008D 
+
+	# mount /dev/disk/by-id/usb-PRETEC_32GB_13052410440805848869-0\:0-part1
+else
+	 #sudo umount /dev/disk/by-id/usb-PRETEC_32GB_13052410440805848869-0\:0-part1
+	umount /dev/disk/by-uuid/DB47-008D 
+fi
+
+exit 0

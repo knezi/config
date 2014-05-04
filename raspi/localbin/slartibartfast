@@ -1,0 +1,18 @@
+#!/bin/bash
+if test -z $1; then
+	echo "Zvol jméno disku {Zalohy, Kamera, Fotky, vse}"
+else
+	if test "vse" = $1; then
+		 sudo mount -t ntfs-3g /dev/disk/by-label/Zalohy /home/pi/Slartibartfast/Zalohy -o umask=0000
+		 sudo mount -t ntfs-3g /dev/disk/by-label/Kamera /home/pi/Slartibartfast/Kamera -o umask=0000
+		 sudo mount -t ntfs-3g /dev/disk/by-label/Fotky /home/pi/Slartibartfast/Fotky -o umask=0000
+	else
+		if test -z $2; then
+			 sudo mount -t ntfs-3g /dev/disk/by-label/$1 /home/pi/Slartibartfast/$1 -o umask=0000
+		else
+			 sudo umount /dev/disk/by-label/$1
+		fi
+	fi
+fi
+
+exit 0
