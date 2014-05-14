@@ -1,5 +1,4 @@
-" nastavení set
-set nocompatible
+" nastavení set set nocompatible
 set history=1000
 set ruler
 set showcmd
@@ -15,6 +14,8 @@ set guioptions-=T
 set foldcolumn=4
 set foldlevel=1
 set foldmethod=indent	
+set laststatus=2
+set ignorecase " case insensitive search.
 syntax on
 
 " automatické příkazy
