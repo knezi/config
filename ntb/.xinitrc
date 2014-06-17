@@ -15,7 +15,7 @@ fi
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
-setxkbmap cz -variant qwerty
+setxkbmap cz -variant qwerty -option terminate:ctrl_alt_bksp
 sudo /home/knezi/.localbin/macros-run &
 xcompmgr &
 devilspie -a &

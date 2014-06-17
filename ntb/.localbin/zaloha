@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
-mount /dev/disk/by-id/usb-Kingston_DataTraveler_2.0_C8600088615FEDC1EA30005B-0:0-part1 /mnt/flash_zaloha
+mount -t f2fs /dev/disk/by-id/usb-Kingston_DataTraveler_2.0_C8600088615FEDC1EA30005B-0:0-part1 /mnt/flash_zaloha
 rdiff-backup /etc /mnt/flash_zaloha/etc
 rdiff-backup /home /mnt/flash_zaloha/home
 rdiff-backup /var/lib/pacman/local/ /mnt/flash_zaloha/pacman
-rdiff-backup --remove-older-than 4W /mnt/flash_zaloha/etc
-rdiff-backup --remove-older-than 4W /mnt/flash_zaloha/home
-rdiff-backup --remove-older-than 4W /mnt/flash_zaloha/pacman
+rdiff-backup --force --remove-older-than 4W /mnt/flash_zaloha/etc
+rdiff-backup --force --remove-older-than 4W /mnt/flash_zaloha/home
+rdiff-backup --force --remove-older-than 4W /mnt/flash_zaloha/pacman
 umount /dev/disk/by-id/usb-Kingston_DataTraveler_2.0_C8600088615FEDC1EA30005B-0:0-part1

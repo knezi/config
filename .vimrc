@@ -5,6 +5,7 @@ set showcmd
 set wildmenu
 set number
 set tabstop=4
+set shiftwidth=4
 filetype indent on
 filetype plugin indent on
 set autoindent
@@ -12,11 +13,15 @@ set autoindent
 set guioptions-=T
 " nastav grafické zobrazení záložek
 set foldcolumn=4
-set foldlevel=1
+set foldlevel=3
 set foldmethod=indent	
 set laststatus=2
 set ignorecase " case insensitive search.
 syntax on
+
+call pathogen#infect()
+filetype plugin indent on
+" for coffeescript
 
 " automatické příkazy
 	autocmd BufNewFile *.html r /home/knezi/Documents/sablony/html.html | call Priprav_soubor()
