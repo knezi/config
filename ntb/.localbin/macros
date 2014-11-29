@@ -1,1 +1,63 @@
-/home/knezi/config_files/ntb/macros
+#!/usr/bin/env ruby
+
+@home = '/home/knezi/.localbin'
+$tux = 4;
+$aktual = 0;
+$konsole = 8;
+def call(keyName)
+  %x["#{@home}/actions/#{keyName}"]
+end
+
+def set_des(plocha)
+  `xdotool set_desktop #{plocha}`
+end
+
+ARGF.each do |line|
+    if line =~ /08010000 00$/
+      call 'S01'
+    elsif line =~ /08020000 00$/
+      call 'S02'
+    elsif line =~ /08040000 00$/
+      call 'S03'
+    elsif line =~ /08080000 00$/
+      call 'S04'
+    elsif line =~ /08100000 00$/
+      call 'S05'
+    elsif line =~ /08200000 00$/
+      call 'S06'
+    elsif line =~ /08400000 00$/
+      call 'S07'
+    elsif line =~ /08800000 00$/
+      call 'S08'
+    elsif line =~ /08000100 00$/
+      call 'S09'
+    elsif line =~ /08000200 00$/
+      call 'S10'
+    elsif line =~ /08000400 00$/
+      call 'S11'
+    elsif line =~ /08000800 00$/
+      call 'S12'
+
+    elsif line =~ /01000000 00001000$/
+     call 'SX1'
+    elsif line =~ /01000000 00001100$/
+     call 'SX2'
+    elsif line =~ /01000000 00001400$/
+     call 'SX3'
+    elsif line =~ /01cd0000 00000000$/
+     call 'SX4'
+    elsif line =~ /01b50000 00000000$/
+     call 'SX5'
+    elsif line =~ /01e60000 00000000$/
+     call 'SX6'
+    elsif line =~ /01e20000 00000000$/
+     call 'SX7'
+    elsif line =~ /01e90000 00000000$/
+     call 'S++'
+    elsif line =~ /01ea0000 00000000$/
+     call 'S--'
+    end
+#9201
+
+
+end

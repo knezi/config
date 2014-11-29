@@ -41,9 +41,11 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "term matrix"
+terminal = "term"
 editor = os.getenv("EDITOR") or "vim"
-editor_cmd = terminal .. " -e " .. editor
+-- editor_cmd = terminal .. " -e " .. editor
+editor_cmd = terminal .. " -e "
+
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -55,10 +57,10 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-    --awful.layout.suit.floating,
+    awful.layout.suit.floating,
     awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
@@ -66,7 +68,7 @@ local layouts =
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    --awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -86,7 +88,7 @@ end
 	-- office = Libre + TeX
     names  = { "www", "term", "others", "social", "music", 6, 7, 8 },
 
-    layout = { layouts[3], layouts[1], layouts[1], layouts[3], layouts[3], layouts[1], layouts[1], layouts[1]
+    layout = { layouts[3], layouts[2], layouts[2], layouts[3], layouts[3], layouts[2], layouts[2], layouts[2]
  }}
  for s = 1, screen.count() do
 	-- Each screen has its own tag table.

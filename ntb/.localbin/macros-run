@@ -1,1 +1,2 @@
-/home/knezi/config_files/ntb/macros-run
+#!/bin/sh
+cat /sys/kernel/debug/usb/usbmon/* | ruby /home/knezi/.localbin/macros

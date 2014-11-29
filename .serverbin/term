@@ -1,10 +1,18 @@
 #!/usr/bin/env sh
+if test $2 = "-e" -o $1 = "-e"
+then
+	echo "asdfho"
+	vim="-e vim"
+else
+	vim=""
+fi
+
 if test $1 = "matrix"
 then
-	xterm -bg black -fg green
+	xterm -bg black -fg green $vim
 elif test $1 = "bila"
 then
-	xterm -bg white -fg black
+	xterm -bg white -fg black $vim
 else
-	xterm -bg black -fg white
+	xterm -bg black -fg white $vim
 fi

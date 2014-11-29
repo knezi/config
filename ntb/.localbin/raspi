@@ -1,0 +1,8 @@
+#!/bin/env sh
+if test -z $1; then
+	sudo mount //192.168.1.3/pihome /mnt/raspi -o user=pi,passwd=raspberry
+	ssh pi@192.168.1.3 "/home/pi/.localbin/slartibartfast vse"
+else
+	sudo umount //192.168.1.3/pihome
+	ssh pi@192.168.1.3 "/home/pi/.localbin/slartibartfast vse odpoj"
+fi
