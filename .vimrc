@@ -18,7 +18,11 @@ set smartindent
 set guioptions-=T
 " nastav grafické zobrazení záložek
 set foldcolumn=4
+<<<<<<< HEAD
 set foldlevel=10
+=======
+set foldlevel=3
+>>>>>>> master
 set foldmethod=indent	
 set laststatus=2
 set ignorecase " case insensitive search.
@@ -38,6 +42,10 @@ hi comment ctermfg=yellow
 "hi number ctermfg=red
 
 
+
+call pathogen#infect()
+filetype plugin indent on
+" for coffeescript
 
 " automatické příkazy
 	autocmd BufNewFile *.html r /home/knezi/Documents/sablony/html.html | call Priprav_soubor()
