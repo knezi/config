@@ -18,11 +18,7 @@ set smartindent
 set guioptions-=T
 " nastav grafické zobrazení záložek
 set foldcolumn=4
-<<<<<<< HEAD
 set foldlevel=10
-=======
-set foldlevel=3
->>>>>>> master
 set foldmethod=indent	
 set laststatus=2
 set ignorecase " case insensitive search.
